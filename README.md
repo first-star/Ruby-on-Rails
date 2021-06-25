@@ -127,7 +127,8 @@ exampleとは、itで分けたグループのこと。
 * nicknameが空では登録できない
 * emailが空では登録できない
 
-```ruby:spec/models/user_spec.rb
+**spec/models/user_spec.rb**
+```ruby:
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
@@ -168,7 +169,8 @@ end
 nicknameのバリデーションに指定されている、presence: trueの挙動を検証
 <br>
 
-```ruby:spec/models/user_spec.rb
+**spec/models/user_spec.rb**
+```ruby:
 require 'rails_helper'
 RSpec.describe User, type: :model do
   describe 'ユーザー新規登録' do
@@ -218,21 +220,34 @@ end
 
 **生成したインスタンスに対してバリデーションを実行**
 
-```ruby:spec/models/user_spec.rb
-
+**spec/models/user_spec.rb**
+```ruby:
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
   describe 'ユーザー新規登録' do
     it 'nicknameが空だと登録できない' do
       user = User.new(nickname: '', email: 'test@example', password: '000000', password_confirmation: '000000')
-     `user``.`valid?`
+     user.valid? #this
     end
     it 'emailが空では登録できない' do
     end
   end
 end
+
 ```
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
