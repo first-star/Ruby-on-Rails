@@ -49,8 +49,15 @@ end
 <br>
 <br>
 
+## .rspecに設定を追加
+**.rspec**
+```
+--require spec_helper
+--format documentation
+```
 
-
+<br>
+<br>
 
 
 
