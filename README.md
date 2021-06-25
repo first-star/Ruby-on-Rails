@@ -38,6 +38,9 @@ end
 <br>
 
 ## RSpecの設定
+<br>
+
+### RSpecをインストール
 **ターミナル**
 ```
 % rails g rspec:install
@@ -46,7 +49,7 @@ end
 <br>
 <br>
 
-## RSpecをインストール
+
 
 
 
