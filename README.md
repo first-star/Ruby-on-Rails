@@ -124,8 +124,8 @@ exampleとは、itで分けたグループのこと。
 <br>
 
 (例)
--nicknameが空では登録できない
--emailが空では登録できない
+* nicknameが空では登録できない
+* emailが空では登録できない
 
 ```ruby:spec/models/user_spec.rb
 require 'rails_helper'
