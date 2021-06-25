@@ -150,11 +150,37 @@ end
 % bundle exec rspec spec/models/user_spec.rb
 ```
 <br>
-![](https://tech-master.s3.amazonaws.com/uploads/curriculums//b1b8bdd661a122e1e6fc6c19e6760ef8.png)
+結果が緑色で表示されれば実行成功
 
+<br>
+<br>
 
+## nicknameが空の場合の記述
+異常系のモデル単体テストの実装は、以下の流れ。
 
+1. 保存するデータ（インスタンス）を作成する
+2. 作成したデータ（インスタンス）が、保存されるかどうかを確認する
+3. 保存されない場合、生成されるエラーメッセージが想定されるものかどうかを確認する
+<br>
 
+**検証のためのインスタンスを作成**
+<br>
+nicknameのバリデーションに指定されている、presence: trueの挙動を検証
+<br>
+
+```ruby:spec/models/user_spec.rb
+require 'rails_helper'
+RSpec.describe User, type: :model do
+  describe 'ユーザー新規登録' do
+    it 'nicknameが空だと登録できない' do
+      user = User.new(nickname: '', email: 'test@example', password: '000000',password_confirmation: '000000')
+    end
+
+    it 'emailが空では登録できない' do
+    end
+  end
+end
+```
 
 
 
