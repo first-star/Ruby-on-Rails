@@ -34,10 +34,19 @@ end
 % cd ~/projects/~~~
 % bundle install
 ```
+<br>
+<br>
 
+## RSpecの設定
+**ターミナル**
+```
+% rails g rspec:install
+```
 
+<br>
+<br>
 
-
+## RSpecをインストール
 
 
 
