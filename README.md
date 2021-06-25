@@ -23,7 +23,7 @@
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
- `gem 'rspec-rails', '~> 4.0.0'`
+  gem 'rspec-rails', '~> 4.0.0'
 end
 
 ```
@@ -60,6 +60,35 @@ end
 
 <br>
 <br>
+
+## テストコードを記述するファイルを用意
+**ターミナル**
+```
+% rails g rspec:model user
+```
+<br>
+
+
+```ruby:spec/models/user_spec.rb
+require 'rails_helper'
+
+RSpec.describe User, type: :model do
+  pending "add some examples to (or delete) #{__FILE__}"
+end
+```
+RSpecでモデル、ビュー、コントローラーのテストを行うためには、rails_helper.rbというファイルを読み込む必要がある。
+<br>
+<br>
+
+### rails_helper
+Rspecを用いてRailsの機能をテストするときに、共通の設定を書いておくファイル。各テスト用ファイルでspec/rails_helper.rbを読み込むことで、共通の設定やメソッドを適用できる。
+<br>
+rails gコマンドでテストファイルを生成すると、rails_helperを読み込む記述が、自動的に追加。
+
+<br>
+
+
+
 
 
 
