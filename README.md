@@ -181,10 +181,37 @@ RSpec.describe User, type: :model do
   end
 end
 ```
+nicknameの値が空のインスタンスを生成。
 
+この後、nicknameに設定されているpresence: tureが正常に機能するか検証するため、バリデーションを実行。バリデーションはDBに保存する前しか実行されない。
+valid?メソッドを用いて、任意のタイミングでバリデーションを実行する。
+<br>
 
+* valid?
+valid?は、バリデーションを実行させて、エラーがあるかどうかを判断するメソッド。
+エラーがない場合はtrueを、ある場合はfalseを返す。
+エラーがあると判断された場合は、エラーの内容を示すエラーメッセージを生成。
 
+(例)Userモデルにおいてnicknameにはpresence: trueのバリデーションが設けられている。
 
+```ruby:app/models/user.rb
+class User < ApplicationRecord
+# 省略
+validates :nickname, presence: true
+# 省略
+end
+
+```
+
+<br>
+
+**ターミナル**
+```
+% rails c
+[1] pry(main)> user = User.new(nickname: '')
+[2] pry(main)> user.valid?
+=> false
+```
 
 
 
