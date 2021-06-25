@@ -87,6 +87,27 @@ rails gコマンドでテストファイルを生成すると、rails_helperを�
 
 <br>
 
+# モデル単体テスト
+
+<br>
+
+## テストコードの雛形
+
+**describe**
+
+describeとは、テストコードのグループ分けを行うメソッド。
+「どの機能に対してのテストを行うか」をdescribeでグループ分けし、その中に各テストコードを記述。
+<br>
+
+```ruby:spec/models/user_spec.rb
+require 'rails_helper'
+
+RSpec.describe User, type: :model do
+  describe 'ユーザー新規登録' do
+    # ユーザー新規登録についてのテストコードを記述  
+  end
+end
+```
 
 
 
