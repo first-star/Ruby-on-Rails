@@ -42,7 +42,8 @@ end
 
 ## RSpecをインストール
 **ターミナル**
-```
+
+```ruby:ターミナル
 % rails g rspec:install
 ```
 
@@ -50,6 +51,7 @@ end
 <br>
 
 ## .rspecに設定を追加
+
 ```ruby:.rspec
 --require spec_helper
 --format documentation
