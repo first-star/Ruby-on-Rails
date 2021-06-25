@@ -37,8 +37,7 @@ end
 <br>
 <br>
 
-## RSpecの設定
-<br>
+# RSpecの設定
 
 ## RSpecをインストール
 **ターミナル**
