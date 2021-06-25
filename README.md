@@ -217,7 +217,8 @@ end
 <br>
 
 **生成したインスタンスに対してバリデーションを実行**
-```:spec/models/user_spec.rb
+
+```ruby:spec/models/user_spec.rb
 
 require 'rails_helper'
 
