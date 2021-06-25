@@ -141,8 +141,16 @@ RSpec.describe User, type: :model do
   end
 end
 ```
+<br>
+<br>
 
-
+## テストコードを実行
+**ターミナル**
+```
+% bundle exec rspec spec/models/user_spec.rb
+```
+<br>
+![](https://tech-master.s3.amazonaws.com/uploads/curriculums//b1b8bdd661a122e1e6fc6c19e6760ef8.png)
 
 
 
