@@ -108,6 +108,60 @@ RSpec.describe User, type: :model do
   end
 end
 ```
+<br>
+
+**it**
+itメソッドは、describeメソッド同様に、グループ分けを行うメソッド。
+itの場合はより詳細に、「describeメソッドに記述した機能において、どのような状況のテストを行うか」を明記。
+
+また、itメソッドで分けたグループを、exampleと呼ぶ。
+
+<br>
+
+**example**
+exampleとは、itで分けたグループのこと。
+また、itに記述した内容のことを指す。
+<br>
+
+(例)
+-nicknameが空では登録できない
+-emailが空では登録できない
+
+```ruby:spec/models/user_spec.rb
+require 'rails_helper'
+
+RSpec.describe User, type: :model do
+  describe 'ユーザー新規登録' do
+    it 'nicknameが空では登録できない' do
+      # nicknameが空では登録できないテストコードを記述します
+    end
+    it 'emailが空では登録できない' do
+      # emailが空では登録できないテストコードを記述します
+    end
+  end
+end
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
