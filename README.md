@@ -43,7 +43,7 @@ end
 ## RSpecをインストール
 **ターミナル**
 
-```ruby:ターミナル
+```
 % rails g rspec:install
 ```
 
