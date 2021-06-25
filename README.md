@@ -224,7 +224,7 @@ RSpec.describe User, type: :model do
   describe 'ユーザー新規登録' do
     it 'nicknameが空だと登録できない' do
       user = User.new(nickname: '', email: 'test@example', password: '000000', password_confirmation: '000000')
-     `user.valid?`
+     user.valid?
     end
     it 'emailが空では登録できない' do
     end
