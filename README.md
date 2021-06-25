@@ -19,7 +19,7 @@
 # Gemを追加
 
 **Gemfile**
-```rb
+```rb:
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -53,7 +53,7 @@ end
 
 ## .rspecに設定を追加
 **.rspec**
-```ruby:.rspec
+```ruby:
 --require spec_helper
 --format documentation
 ```
@@ -68,8 +68,8 @@ end
 ```
 <br>
 
-
-```ruby:spec/models/user_spec.rb
+**spec/models/user_spec.rb**
+```ruby:
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
@@ -99,7 +99,8 @@ describeとは、テストコードのグループ分けを行うメソッド。
 「どの機能に対してのテストを行うか」をdescribeでグループ分けし、その中に各テストコードを記述。
 <br>
 
-```ruby:spec/models/user_spec.rb
+**spec/models/user_spec.rb**
+```ruby:
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
@@ -126,6 +127,7 @@ exampleとは、itで分けたグループのこと。
 (例)
 * nicknameが空では登録できない
 * emailが空では登録できない
+<br>
 
 **spec/models/user_spec.rb**
 ```ruby:
@@ -219,6 +221,7 @@ end
 <br>
 
 **生成したインスタンスに対してバリデーションを実行**
+<br>
 
 **spec/models/user_spec.rb**
 ```ruby:
