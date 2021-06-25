@@ -30,7 +30,7 @@ end
 <br>
 
 **ターミナル**
-```ruby:ターミナル
+```
 % cd ~/projects/~~~
 % bundle install
 ```
@@ -42,7 +42,7 @@ end
 
 ## RSpecをインストール
 **ターミナル**
-```ruby:.rspec
+```
 % rails g rspec:install
 ```
 
@@ -50,8 +50,7 @@ end
 <br>
 
 ## .rspecに設定を追加
-**.rspec**
-```
+```ruby:.rspec
 --require spec_helper
 --format documentation
 ```
