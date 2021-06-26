@@ -239,6 +239,13 @@ RSpec.describe User, type: :model do
 end
 
 ```
+nicknameが空のインスタンスuserに、valid?メソッドを使用
+
+Userモデルのバリデーションにはpresence: trueが指定されているため、nicknameが空ではDBに保存できないと判断され、valid?メソッドはfalseを返すはずです。
+
+<br>
+
+* expectation
 
 
 
