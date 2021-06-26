@@ -297,6 +297,30 @@ end
 1 + 1という計算の結果が、2と等しいことを想定  
 1 + 1は2と等しいため、テストは成功
 
+<br>
+
+### errors
+
+errorsは、インスタンスにエラーを示す情報がある場合、その内容を返すメソッド。  
+
+rails cを使う  
+**ターミナル**
+```ruby
+% rails c
+[1] pry(main)> user = User.new(nickname: '', mail: 'test@example', password: '000000', password_confirmation: '000000')
+[2] pry(main)> user.valid?
+User Exists? (10.4ms)  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test@example' LIMIT 1
+=> false
+[3] pry(main)> user.errors
+=> #<ActiveModel::Errors:0x00007feb3e0120a8
+ @base=
+  #<User id: nil, email: "test@example", created_at: nil, updated_at: nil, nickname: "">,
+ @details={:nickname=>[{:error=>:blank}]},
+ @messages={:nickname=>["can't be blank"]}>
+```
+
+<br>
+
 
 
 
