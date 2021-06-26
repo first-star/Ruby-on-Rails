@@ -185,17 +185,17 @@ RSpec.describe User, type: :model do
   end
 end
 ```
-nicknameの値が空のインスタンスを生成。
+nicknameの値が空のインスタンスを生成。  
 
-この後、nicknameに設定されているpresence: tureが正常に機能するか検証するため、バリデーションを実行。バリデーションはDBに保存する前しか実行されない。
+この後、nicknameに設定されているpresence: tureが正常に機能するか検証するため、バリデーションを実行。バリデーションはDBに保存する前しか実行されない。  
 valid?メソッドを用いて、任意のタイミングでバリデーションを実行する。
 <br>
 
 * valid?
 <br>
-valid?は、バリデーションを実行させて、エラーがあるかどうかを判断するメソッド。
-エラーがない場合はtrueを、ある場合はfalseを返す。
-エラーがあると判断された場合は、エラーの内容を示すエラーメッセージを生成。
+valid?は、バリデーションを実行させて、エラーがあるかどうかを判断するメソッド。  
+エラーがない場合はtrueを、ある場合はfalseを返す。  
+エラーがあると判断された場合は、エラーの内容を示すエラーメッセージを生成。  
 
 (例)Userモデルにおいてnicknameにはpresence: trueのバリデーションが設けられている。
 
@@ -239,7 +239,7 @@ RSpec.describe User, type: :model do
 end
 
 ```
-nicknameが空のインスタンスuserに、valid?メソッドを使用
+nicknameが空のインスタンスuserに、valid?メソッドを使用  
 
 Userモデルのバリデーションにはpresence: trueが指定されているため、nicknameが空ではDBに保存できないと判断され、valid?メソッドはfalseを返すはずです。
 
@@ -248,14 +248,14 @@ Userモデルのバリデーションにはpresence: trueが指定されてい�
 
 ## expectation
 
-検証で得られた挙動が想定通りなのかを確認する構文
+検証で得られた挙動が想定通りなのかを確認する構文  
 
-テストの内容に応じて引数やmatcherを変えて記述
+テストの内容に応じて引数やmatcherを変えて記述  
 expect().to matcher()
 <br>
 
 ## matcher
-matcherは、「expectの引数」と「想定した挙動」が一致しているかどうかを判断。
+matcherは、「expectの引数」と「想定した挙動」が一致しているかどうかを判断。  
 expectの引数には検証で得られた実際の挙動を指定し、マッチャには、想定している挙動を記述。
 
 代表的なのは`include`と`eq`マッチャ
