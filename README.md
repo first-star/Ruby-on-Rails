@@ -302,8 +302,9 @@ end
 ### errors
 
 errorsは、インスタンスにエラーを示す情報がある場合、その内容を返すメソッド。  
-
 rails cを使う  
+<br>
+
 **ターミナル**
 ```ruby
 % rails c
@@ -321,7 +322,19 @@ User Exists? (10.4ms)  SELECT 1 AS one FROM `users` WHERE `users`.`email` = BINA
 
 <br>
 
+### full_messages
 
+full_messagesは、エラーの内容から、エラーメッセージを配列として取り出すメソッド。
+<br>
+
+**ターミナル**
+```ruby
+# 省略
+[4] pry(main)> user.errors.full_messages
+=> ["Nickname can't be blank"]
+```
+
+<br>
 
 
 
