@@ -243,9 +243,41 @@ nicknameが空のインスタンスuserに、valid?メソッドを使用
 
 Userモデルのバリデーションにはpresence: trueが指定されているため、nicknameが空ではDBに保存できないと判断され、valid?メソッドはfalseを返すはずです。
 
+「想定した挙動」と「アプリの実際の挙動」をテストコードに落とし込んだものをexpectationという
 <br>
 
-* expectation
+## expectation
+
+検証で得られた挙動が想定通りなのかを確認する構文
+
+テストの内容に応じて引数やmatcherを変えて記述
+expect().to matcher()
+<br>
+
+## matcher
+matcherは、「expectの引数」と「想定した挙動」が一致しているかどうかを判断。
+expectの引数には検証で得られた実際の挙動を指定し、マッチャには、想定している挙動を記述。
+
+代表的なのは`include`と`eq`マッチャ
+<br>
+
+
+### include
+includeは、「expectの引数」に「includeの引数」が含まれていることを確認するマッチャ。
+<br>
+
+**(例)includeマッチャのテストコード**
+```ruby
+describe 'フルーツ盛り合わせ' do
+  it 'フルーツ盛り合わせにメロンが含まれている' do
+     expect(['りんご', 'バナナ', 'ぶどう', 'メロン']).to include('メロン')
+  end
+end
+```
+
+配列に、メロンが含まれることを想定
+配列のなかにメロンは含まれているため、テストは成功
+
 
 
 
