@@ -336,7 +336,132 @@ full_messagesは、エラーの内容から、エラーメッセージを配列�
 
 <br>
 
+どんなエクスペクテーションを記述すればよいのか考える。
 
+expectの引数には検証で得られた挙動を指定したいため、valid?メソッドを使用した後のインスタンスのエラーメッセージを指定する。  
+
+よって、expect(user.errors.full_messages)となる。  
+
+さらに、full_messagesの返り値は配列であるため、includeマッチャを用いて、配列にどのようなエラーが含まれていればよいか指定する。  
+
+nicknameでpresence: trueによるエラーが起こるため、想定するエラーメッセージは"Nickname can't be blank"が適切。  
+<br>
+
+## エクスペクテーションを記述
+
+**spec/models/user_spec.rb**
+```ruby
+require 'rails_helper'
+RSpec.describe User, type: :model do
+  describe 'ユーザー新規登録' do
+    it 'nicknameが空では登録できない' do
+      user = User.new(nickname: '', email: 'test@example', password: '000000', password_confirmation: '000000')
+      user.valid?
+      expect(user.errors.full_messages).to include("Nickname can't be blank")
+    end
+    it 'emailが空では登録できない' do
+    end
+  end
+end
+```
+<br>
+
+## テストコードを実行
+
+**ターミナル**
+```ruby
+% bundle exec rspec spec/models/user_spec.rb 
+```
+<br>
+
+## emailが空の場合の記述
+
+1. 検証のためのインスタンスを生成する  
+nicknameではなくemailを空にしてインスタンスを生成します。nicknameには空以外の値を入力。  
+
+2. 生成したインスタンスに対してバリデーションを行う  
+valid?メソッドを用いてバリデーションを行う  
+
+3. バリデーションを行ったあとに生成されるエラーメッセージが、どのような状態であればよいのかを指定する  
+適切なメソッドやマッチャを用いて、エクスペクテーションを完成させる。  
+
+<br>
+
+**binding.pryを用いてエラーを確認**
+
+**spec/models/user_spec.rb**
+```ruby
+require 'rails_helper'
+
+RSpec.describe User, type: :model do
+  describe 'ユーザー新規登録' do
+    it 'nicknameが空では登録できない' do
+      user = User.new(nickname: '', email: 'test@example', password: '000000', password_confirmation: '000000')
+      user.valid?
+      expect(user.errors.full_messages).to include("Nickname can't be blank")
+    end
+    it 'emailが空では登録できない' do
+      user = User.new(nickname: 'test', email: '', password: '000000', password_confirmation: '000000')
+      user.valid?
+      binding.pry
+    end
+  end
+end
+```
+
+<br>
+
+**binding.pryでテストコードの処理が停止することを確認**  
+
+**ターミナル**
+```
+% bundle exec rspec spec/models/user_spec.rb 
+```
+停止が確認できたら、ターミナルで以下のように実行して、エラーメッセージを確かめる
+
+<br>
+
+**ターミナル**
+```ruby
+[1] pry(main)> user.errors
+=> #<ActiveModel::Errors:0x00007fba4d3e0a80
+ @base=#<User id: nil, email: "", created_at: nil, updated_at: nil, nickname: "test">,
+ @details={:email=>[{:error=>:blank}]},
+ @messages={:email=>["can't be blank"]}>
+[2] pry(main)> user.errors.full_messages
+=> ["Email can't be blank"]
+```
+<br>
+
+## エクスペクテーションを記述
+
+**spec/models/user_spec.rb**
+```ruby
+require 'rails_helper'
+
+RSpec.describe User, type: :model do
+  describe 'ユーザー新規登録' do
+    it 'nicknameが空では登録できない' do
+      user = User.new(nickname: '', email: 'test@example', password: '000000', password_confirmation: '000000')
+      user.valid?
+      expect(user.errors.full_messages).to include("Nickname can't be blank")
+    end
+    it 'emailが空では登録できない' do
+      user = User.new(nickname: 'test', email: '', password: '000000', password_confirmation: '000000')
+      user.valid?
+      expect(user.errors.full_messages).to include("Email can't be blank")
+    end
+  end
+end
+```
+<br>
+
+## テストコードを実行  
+
+**ターミナル**  
+```
+% bundle exec rspec spec/models/user_spec.rb 
+```
 
 
 
